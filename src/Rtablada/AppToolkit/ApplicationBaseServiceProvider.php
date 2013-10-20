@@ -4,16 +4,49 @@ use Illuminate\Support\ServiceProvider;
 
 class ApplicationBaseServiceProvider extends ServiceProvider
 {
+	/**
+	 * Should routes be booted?
+	 *
+	 * @var boolean
+	 */
 	protected $routes = true;
+
+	/**
+	 * Should filters be booted?
+	 *
+	 * @var boolean
+	 */
 	protected $filters = false;
+
+	/**
+	 * Should views be booted and what is their namespace?
+	 *
+	 * @var string
+	 */
 	protected $viewNamespace = null;
+
+	/**
+	 * We need this to know the location of our child class.
+	 *
+	 * @var boolean
+	 */
 	protected $fileLocation = __DIR__;
 
+	/**
+	 * Service Provider Register function - User extendable
+	 *
+	 * @return void
+	 */
 	public function register()
 	{
 
 	}
 
+	/**
+	 * Boot our routes, filters, and views.
+	 *
+	 * @return void
+	 */
 	public function boot()
 	{
 		$this->bootRoutes();
@@ -21,6 +54,11 @@ class ApplicationBaseServiceProvider extends ServiceProvider
 		$this->bootViews();
 	}
 
+	/**
+	 * Boot routes file.
+	 *
+	 * @return void
+	 */
 	public function bootRoutes()
 	{
 		if ($this->routes) {
@@ -28,6 +66,11 @@ class ApplicationBaseServiceProvider extends ServiceProvider
 		}
 	}
 
+	/**
+	 * Boot filters file.
+	 *
+	 * @return void
+	 */
 	public function bootFilters()
 	{
 		if ($this->filters) {
@@ -35,6 +78,11 @@ class ApplicationBaseServiceProvider extends ServiceProvider
 		}
 	}
 
+	/**
+	 * Boot views namespace.
+	 *
+	 * @return void
+	 */
 	public function bootViews()
 	{
 		if ($this->viewNamespace) {
