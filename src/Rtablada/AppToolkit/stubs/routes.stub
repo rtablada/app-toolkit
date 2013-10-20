@@ -1,0 +1,3 @@
+<?php
+
+$controllerNamespace = '{{ $controllerNamespace }}\\Controllers\\';

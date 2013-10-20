@@ -49,7 +49,7 @@ class ApplicationCreator
 		$this->setOptions($options);
 
 		$directory = $this->createDirectory($subAppName);
-		$this->createRoutes($directory);
+		$this->createRoutes($subAppName, $directory);
 		$this->createFilters($directory);
 		$this->createViews($directory);
 
@@ -65,9 +65,13 @@ class ApplicationCreator
 		return $directory;
 	}
 
-	protected function createRoutes($directory)
+	protected function createRoutes($subAppName, $directory)
 	{
 		if ($this->options['routes']) {
+			$stub = $this->files->get(__DIR__.'/stubs/routes.stub');
+			$controllerNamespace = $this->appName.'\\\\'.'Applications\\\\'.$subAppName;
+			$stub = str_replace('{{ $controllerNamespace }}', $controllerNamespace, $stub);
+
 			$this->files->put($directory.'/routes.php', '<?php');
 		}
 	}
