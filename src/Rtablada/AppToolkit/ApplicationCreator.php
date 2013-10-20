@@ -52,9 +52,11 @@ class ApplicationCreator
 		$this->createRoutes($directory);
 		$this->createFilters($directory);
 		$this->createViews($directory);
+
+		$this->createServiceProvider($subAppName, $directory);
 	}
 
-	public function createDirectory($subAppName)
+	protected function createDirectory($subAppName)
 	{
 		$directory = app_path().'/'.$this->appName.'/Applications/'.$subAppName;
 		if (!$this->files->isDirectory($directory)) {
@@ -63,14 +65,14 @@ class ApplicationCreator
 		return $directory;
 	}
 
-	public function createRoutes($directory)
+	protected function createRoutes($directory)
 	{
 		if ($this->options['routes']) {
 			$this->files->put($directory.'/routes.php', '<?php');
 		}
 	}
 
-	public function createViews($directory)
+	protected function createViews($directory)
 	{
 		if ($this->options['viewNamespace']) {
 			$viewsDirectory = $directory.'/views';
@@ -80,16 +82,46 @@ class ApplicationCreator
 		}
 	}
 
-	public function createFilters($directory)
+	protected function createServiceProvider($subAppName, $directory)
+	{
+		$serviceProviderDirectory = $this->createServiceProviderDirectory($subAppName, $directory);
+
+		$stub = $this->files->get(__DIR__.'/stubs/ServiceProvider.stub');
+		$stub = str_replace('{{ $routes }}', $this->getStringValue($this->options['routes']) , $stub);
+		$stub = str_replace('{{ $filters }}', $this->getStringValue($this->options['filters']) , $stub);
+		$stub = str_replace('{{ $viewNamespace }}', $this->getStringValue($this->options['viewNamespace']) , $stub);
+
+		$this->files->put($serviceProviderDirectory.'/'.$subAppName.'.php', $stub);
+	}
+
+	protected function createServiceProviderDirectory($subAppName, $directory)
+	{
+		$serviceProviderDirectory = $directory.'/ServiceProviders';
+		if (!$this->files->isDirectory($serviceProviderDirectory)) {
+			$this->files->makeDirectory($serviceProviderDirectory, 0777, true);
+		}
+
+		return $serviceProviderDirectory;
+	}
+
+	protected function createFilters($directory)
 	{
 		if ($this->options['filters']) {
 			$this->files->put($directory.'/filters.php', '<?php');
 		}
 	}
 
-	public function setOptions(array $options)
+	protected function setOptions(array $options)
 	{
 		$this->options = array_merge($this->options, $options);
+	}
+
+	protected function getStringValue($var)
+	{
+		if (is_bool($var)) {
+			return $var ? 'true' : 'false';
+		}
+		return $var;
 	}
 
 }

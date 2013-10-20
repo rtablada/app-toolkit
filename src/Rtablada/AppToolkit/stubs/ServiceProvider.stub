@@ -1,0 +1,9 @@
+<?php namespace Test\Applications\Adda\ServiceProviders;
+
+class Adda extends \Rtablada\AppToolkit\ApplicationBaseServiceProvider
+{
+	$filters = {{ $filters }};
+	$routes = {{ $routes }};
+	protected $viewNamespace = {{ $viewNamespace }}
+	protected $fileLocation = __DIR__;
+}
