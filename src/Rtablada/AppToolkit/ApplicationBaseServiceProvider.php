@@ -38,7 +38,7 @@ class ApplicationBaseServiceProvider extends ServiceProvider
 	public function bootViews()
 	{
 		if ($this->viewNamespace) {
-			View::addNamespace($this->viewNamespace, $this->fileLocation.'/../views');
+			$this->app['view']->addNamespace($this->viewNamespace, $this->fileLocation.'/../views');
 		}
 	}
 }
