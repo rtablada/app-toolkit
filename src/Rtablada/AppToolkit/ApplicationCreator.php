@@ -52,12 +52,32 @@ class ApplicationCreator
 		$this->setOptions($options);
 
 		$directory = $this->createDirectory($subAppName);
+		$this->createRoutes($directory);
+		$this->createFilters($directory);
+		// $this->createViews($directory);
 	}
 
 	public function createDirectory($subAppName)
 	{
 		$directory = app_path().'/'.$this->appName.'/Applications/'.$subAppName;
-		$this->files->makeDirectory($directory, 0777, true);
+		if (!$this->files->isDirectory($directory)) {
+			$this->files->makeDirectory($directory, 0777, true);
+		}
+		return $directory;
+	}
+
+	public function createRoutes($directory)
+	{
+		if ($this->routes) {
+			$this->files->put($directory.'/routes.php', '<?php');
+		}
+	}
+
+	public function createFilters($directory)
+	{
+		if ($this->filters) {
+			$this->files->put($directory.'/filters.php', '<?php');
+		}
 	}
 
 	public function setOptions(array $options)
