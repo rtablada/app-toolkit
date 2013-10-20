@@ -4,6 +4,6 @@ class {{ $subApp }} extends \Rtablada\AppToolkit\ApplicationBaseServiceProvider
 {
 	protected $filters = {{ $filters }};
 	protected $routes = {{ $routes }};
-	protected $viewNamespace = {{ $viewNamespace }};
+	protected $viewNamespace = '{{ $viewNamespace }}';
 	protected $fileLocation = __DIR__;
 }
