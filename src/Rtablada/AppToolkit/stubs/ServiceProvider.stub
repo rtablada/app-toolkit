@@ -2,8 +2,8 @@
 
 class {{ $subApp }} extends \Rtablada\AppToolkit\ApplicationBaseServiceProvider
 {
-	$filters = {{ $filters }};
-	$routes = {{ $routes }};
+	protected $filters = {{ $filters }};
+	protected $routes = {{ $routes }};
 	protected $viewNamespace = {{ $viewNamespace }}
 	protected $fileLocation = __DIR__;
 }
