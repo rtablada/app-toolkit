@@ -51,7 +51,7 @@ class ApplicationCreator
 		$directory = $this->createDirectory($subAppName);
 		$this->createRoutes($directory);
 		$this->createFilters($directory);
-		// $this->createViews($directory);
+		$this->createViews($directory);
 	}
 
 	public function createDirectory($subAppName)
@@ -67,6 +67,16 @@ class ApplicationCreator
 	{
 		if ($this->options['routes']) {
 			$this->files->put($directory.'/routes.php', '<?php');
+		}
+	}
+
+	public function createViews($directory)
+	{
+		if ($this->options['viewNamespace']) {
+			$viewsDirectory = $directory.'/views';
+			if (!$this->files->isDirectory($viewsDirectory)) {
+				$this->files->makeDirectory($viewsDirectory, 0777, true);
+			}
 		}
 	}
 
