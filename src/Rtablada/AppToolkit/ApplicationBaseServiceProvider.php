@@ -23,7 +23,7 @@ class ApplicationBaseServiceProvider extends ServiceProvider
 	 *
 	 * @var string
 	 */
-	protected $viewNamespace = null;
+	protected $viewNamespace;
 
 	/**
 	 * We need this to know the location of our child class.
