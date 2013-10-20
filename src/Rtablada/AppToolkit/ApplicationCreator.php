@@ -28,18 +28,14 @@ class ApplicationCreator
 	protected $appName;
 
 	/**
-	 * Should a routes file be created and included in the service provider?
+	 * Options when creating application
 	 *
 	 * @var boolean
 	 */
-	protected $routes = true;
-
-	/**
-	 * Should a filters file be created and included in the service provider?
-	 *
-	 * @var boolean
-	 */
-	protected $filters = false;
+	protected $options = array(
+		'routes' => true,
+		'filters' => false,
+	);
 
 	public function __construct(Filesystem $files, Config $config)
 	{
@@ -49,6 +45,7 @@ class ApplicationCreator
 
 	public function create($subAppName, array $options = array())
 	{
+		$this->options['viewNamespace'] = $subAppName;
 		$this->setOptions($options);
 
 		$directory = $this->createDirectory($subAppName);
@@ -68,21 +65,21 @@ class ApplicationCreator
 
 	public function createRoutes($directory)
 	{
-		if ($this->routes) {
+		if ($this->options['routes']) {
 			$this->files->put($directory.'/routes.php', '<?php');
 		}
 	}
 
 	public function createFilters($directory)
 	{
-		if ($this->filters) {
+		if ($this->options['filters']) {
 			$this->files->put($directory.'/filters.php', '<?php');
 		}
 	}
 
 	public function setOptions(array $options)
 	{
-
+		$this->options = array_merge($this->options, $options);
 	}
 
 }
