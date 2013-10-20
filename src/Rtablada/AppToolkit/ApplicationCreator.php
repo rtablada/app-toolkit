@@ -72,7 +72,7 @@ class ApplicationCreator
 			$controllerNamespace = $this->appName.'\\\\'.'Applications\\\\'.$subAppName;
 			$stub = str_replace('{{ $controllerNamespace }}', $controllerNamespace, $stub);
 
-			$this->files->put($directory.'/routes.php', '<?php');
+			$this->files->put($directory.'/routes.php', $stub);
 		}
 	}
 
