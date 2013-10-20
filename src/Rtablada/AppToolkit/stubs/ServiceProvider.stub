@@ -1,6 +1,6 @@
-<?php namespace Test\Applications\Adda\ServiceProviders;
+<?php namespace {{ $appName }}\Applications\{{ $subApp }}\ServiceProviders;
 
-class Adda extends \Rtablada\AppToolkit\ApplicationBaseServiceProvider
+class {{ $subApp }} extends \Rtablada\AppToolkit\ApplicationBaseServiceProvider
 {
 	$filters = {{ $filters }};
 	$routes = {{ $routes }};

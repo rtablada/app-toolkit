@@ -88,6 +88,8 @@ class ApplicationCreator
 
 		$stub = $this->files->get(__DIR__.'/stubs/ServiceProvider.stub');
 		$stub = str_replace('{{ $routes }}', $this->getStringValue($this->options['routes']) , $stub);
+		$stub = str_replace('{{ $subApp }}', $this->getStringValue($subAppName) , $stub);
+		$stub = str_replace('{{ $appName }}', $this->getStringValue($this->appName) , $stub);
 		$stub = str_replace('{{ $filters }}', $this->getStringValue($this->options['filters']) , $stub);
 		$stub = str_replace('{{ $viewNamespace }}', $this->getStringValue($this->options['viewNamespace']) , $stub);
 
