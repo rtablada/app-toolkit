@@ -15,7 +15,8 @@
     },
     "autoload": {
         "psr-0": {
-            "Rtablada\\AppToolkit": "src/"
+            "Rtablada\\AppToolkit": "src/",
+            "Rtablada\\MigrationPublisher": "src/"
         }
     },
     "minimum-stability": "dev"
