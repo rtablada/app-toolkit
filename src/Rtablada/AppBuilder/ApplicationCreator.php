@@ -1,4 +1,4 @@
-<?php namespace Rtablada\AppToolkit;
+<?php namespace Rtablada\AppBuilder;
 
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Config\Repository as Config;

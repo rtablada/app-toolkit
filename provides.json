@@ -1,6 +1,7 @@
 {
         "providers": [
-                "Rtablada\AppToolkit\AppToolkitServiceProvider"
+                "Rtablada\AppToolkit\AppToolkitServiceProvider",
+                "Rtablada\MigrationPublisher\MigrationPublisherServiceProvider"
         ],
         "aliases": [
         ]

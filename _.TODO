@@ -1,0 +1,15 @@
+ ☐ Users
+     ✔ Base Model @done (13-10-26 18:22)
+     ✔ Passwords @done (13-10-26 18:32)
+     ✔ Auth @done (13-10-26 18:24)
+     ✔ Password Reminders @done (13-10-26 18:24)
+     ☐ Roles
+     ☐ Activation
+     ☐ Migrations
+         ☐ Base
+         ☐ Roles
+         ☐ Password Reset
+ ☐ Login Controllers
+     ☐ Reminders
+     ☐ Activation
+     ☐ Login

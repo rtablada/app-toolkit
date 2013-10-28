@@ -24,17 +24,7 @@ class AppToolkitServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app['app-toolkit.creator'] = $this->app->share(function($app)
-		{
-			return new ApplicationCreator($app['files'], $app['config']);
-		});
 
-		$this->app['command.application.make'] = $this->app->share(function($app)
-		{
-			return new ApplicationMakeCommand($app['app-toolkit.creator']);
-		});
-
-		$this->commands('command.application.make');
 	}
 
 	/**
@@ -44,7 +34,7 @@ class AppToolkitServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array('app-toolkit.creator');
+
 	}
 
 }

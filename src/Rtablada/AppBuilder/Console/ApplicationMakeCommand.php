@@ -1,9 +1,9 @@
-<?php namespace Rtablada\AppToolkit\Console;
+<?php namespace Rtablada\AppBuilder\Console;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
-use Rtablada\AppToolkit\ApplicationCreator;
+use Rtablada\AppBuilder\ApplicationCreator;
 
 class ApplicationMakeCommand extends Command {
 
@@ -24,7 +24,7 @@ class ApplicationMakeCommand extends Command {
 	/**
 	 * Instance of ApplicationCreator
 	 *
-	 * @var Rtablada\AppToolkit\ApplicationCreator
+	 * @var Rtablada\AppBuilder\ApplicationCreator
 	 */
 	protected $applicationCreator;
 
