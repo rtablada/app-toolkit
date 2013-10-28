@@ -1,5 +1,7 @@
 <?php namespace Rtablada\AppToolkit\User;
 
+use Hash;
+
 trait PasswordHasher
 {
 
