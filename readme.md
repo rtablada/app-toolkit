@@ -1,6 +1,10 @@
 Laravel App Toolkit
 ---
 
+<a href="https://floobits.com/r/rtablada/app-toolkit/redirect">
+  <img alt="Floobits status" width="80" height="40" src="https://floobits.com/r/rtablada/app-toolkit.png" />
+</a>
+
 This App Toolkit will help you to create sub-applications similar to subapps found in Django and other frameworks.
 This helps you make small MVC apps to organize your larger apps.
 
