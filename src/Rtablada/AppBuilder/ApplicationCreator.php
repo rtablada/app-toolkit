@@ -40,7 +40,7 @@ class ApplicationCreator
 	public function __construct(Filesystem $files, Config $config)
 	{
 		$this->files = $files;
-		$this->appName = $config->get('app-toolkit::app_name');
+		$this->appName = $config->get('app-builder.app_name') || $config->get('app-toolkit::app_name');
 	}
 
 	public function create($subAppName, array $options = array())
