@@ -5,5 +5,4 @@ trait BaseModel
 	use Guardable;
 	use PasswordHasher;
 	use PasswordRemindable;
-
 }
