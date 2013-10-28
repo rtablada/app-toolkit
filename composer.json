@@ -16,6 +16,7 @@
     "autoload": {
         "psr-0": {
             "Rtablada\\AppToolkit": "src/",
+            "Rtablada\\AppBuilder": "src/",
             "Rtablada\\MigrationPublisher": "src/"
         }
     },
